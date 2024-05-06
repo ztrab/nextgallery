@@ -4,28 +4,27 @@ import { UploadButton } from "@/utils/uploadthing";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 
-export function TopNav () {
+export function TopNav() {
   const router = useRouter();
 
-
   return (
-    <nav className="p-4 font-semibold flex items-center justify-between w-fulltext-xl border-b">
+    <nav className="flex w-full items-center justify-between border-b p-4 text-xl font-semibold">
       <div>Gallery</div>
 
       <div className="flex flex-row">
         <SignedOut>
-          <SignInButton/>
+          <SignInButton />
         </SignedOut>
         <SignedIn>
-          <UploadButton 
-            endpoint="imageUploader" 
+          <UploadButton
+            endpoint="imageUploader"
             onClientUploadComplete={() => {
-              router.refresh()
+              router.refresh();
             }}
           />
           <UserButton />
         </SignedIn>
       </div>
     </nav>
-  )
+  );
 }
