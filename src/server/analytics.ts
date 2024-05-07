@@ -1,4 +1,6 @@
-import { PostHog } from 'posthog-node'
+import "server-only"
+
+import { PostHog } from "posthog-node"
 
 function serverSideAnalytics() {
   const posthogClient = new PostHog(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
